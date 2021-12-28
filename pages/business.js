@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 
 
-export default function Home({articles, trending}) {
+export default function business({articles, trending}) {
 
   return (
     <div >
@@ -28,16 +28,16 @@ export default function Home({articles, trending}) {
            
             {articles.results.map( (article, index) => (
              
-              <div key={article.uid}>
-                {console.log(article.uid)}
+              <div key={article.data.uid}>
                  <Link href={`article/${article.data.uid}`}>
               <img className='w-2/3 ml-9 cursor-pointer' src={article.data.image.url} alt={article.data.title} />
               </Link>
-              <Link href={`article/${article.data.id}`}>
-                <h1 className='ml-5 mt-5 text-blue-700 text-xl cursor-pointer px-5   pb-1 hover:text-orange-300 capitalize w-2/3'>{RichText.render(article.data.title)}</h1>
+              <Link href={`article/${article.data.uid}`}>
+                <h1 className='ml-5 mt-5 text-slate-600 text-xl cursor-pointer px-5   pb-1 hover:text-gray-900 capitalize w-2/3'>{RichText.render(article.data.title)}</h1>
                 
               </Link>
-              <div className='text-slate-500 w-2/3  mb-11 text-sm ml-10'>{article.data.textbox.map((textbox) => textbox.text.slice(0, 30))}
+              <div className='text-slate-500 w-2/3  mb-11 text-sm ml-10'>
+                  {/* {article.data.textbox.map((textbox) => textbox.text.slice(0, 30))} */}
              
               
               </div>
@@ -51,7 +51,7 @@ export default function Home({articles, trending}) {
           <h1 className='text-2xl text-slate-500 uppercase font-semibold my-11 ml-4'> See Whats Trending </h1>
             {trending.results.map((trending, index) => (
               <div key={trending.uid}>
-            
+                 
                 <Link href={`trending/${trending.uid}`}>
                   <h1 className='bold text-xl text-zinc-600 cursor-pointer'>{RichText.render(trending.data.title)}</h1>
                 </Link>
@@ -73,7 +73,7 @@ export default function Home({articles, trending}) {
 //called with every request/refresh
 export async function getServerSideProps() {
   const articles = await Client().query(
-    Prismic.Predicates.at("document.type", "article")
+    Prismic.Predicates.at("document.tags", ["business"])
   );
 
   const trending = await Client().query(

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GiAstronautHelmet } from "react-icons/gi";
+import { GiAstronautHelmet, GiSoundWaves} from "react-icons/gi";
 import { FiSearch} from "react-icons/fi";
 import {AiOutlineBell, AiOutlineUser} from 'react-icons/ai'
 import {TiSocialFacebook, TiSocialYoutube,TiSocialTwitter,TiSocialLinkedin } from 'react-icons/ti'
@@ -11,7 +11,8 @@ export default function layout({children}){
         <div className="px-.5 md:px-24 bg-black text-white flex justify-between h-20">
             <Link href="/">
                 <a className="text-white uppercase text-2xl flex align-baseline px-1 my-auto tracking-wider font-thin"> 
-                    <GiAstronautHelmet className="text-3xl"></GiAstronautHelmet>&nbsp;Station 23</a>
+                    <GiSoundWaves className="text-4xl text text-slate-400"></GiSoundWaves>&nbsp;Station 23</a>
+                    
             </Link>
 
         <div className="flex items-center w-1/3 text-2xl">
@@ -44,7 +45,7 @@ export default function layout({children}){
             <div>
             <Link href="/">
                 <a className="text-white uppercase text-2xl flex align-baseline px-1 my-auto tracking-wider font-thin"> 
-                    <GiAstronautHelmet className="text-3xl"></GiAstronautHelmet>&nbsp; Station 23</a>
+                <GiSoundWaves className="text-4xl"></GiSoundWaves>&nbsp; Station 23</a>
             </Link>
             </div>
 

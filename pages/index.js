@@ -21,7 +21,7 @@ export default function Home({articles, trending}) {
      
       <Layout>
        <div>
-        <h1 className='text-2xl text-slate-500 uppercase font-semibold my-11 ml-4'> Stay Informed </h1>
+        <h1 className='text-3xl text-slate-400 uppercase font-semibold my-11 ml-5'> Stay Informed </h1>
 
           <div className='flex'>
           <div className="flex  flex-col w-2/3 ml-24 ">
@@ -29,12 +29,13 @@ export default function Home({articles, trending}) {
             {articles.results.map( (article, index) => (
              
               <div key={article.uid}>
-                {console.log(article.uid)}
-                 <Link href={`article/${article.data.uid}`}>
-              <img className='w-2/3 ml-9 cursor-pointer' src={article.data.image.url} alt={article.data.title} />
+               
+                 <Link href={`article/${article.uid}`}>
+                  
+              <img className='w-2/3 ml-9 cursor-pointer shadow-s,' src={article.data.image.url} alt={article.data.title} />
               </Link>
               <Link href={`article/${article.data.id}`}>
-                <h1 className='ml-5 mt-5 text-blue-700 text-xl cursor-pointer px-5   pb-1 hover:text-orange-300 capitalize w-2/3'>{RichText.render(article.data.title)}</h1>
+                <h1 className='ml-5 mt-5 text-blue-700 text-xl cursor-pointer px-5   pb-1 hover:text-slate-400 capitalize w-2/3'>{RichText.render(article.data.title)}</h1>
                 
               </Link>
               <div className='text-slate-500 w-2/3  mb-11 text-sm ml-10'>{article.data.textbox.map((textbox) => textbox.text.slice(0, 30))}
@@ -48,7 +49,7 @@ export default function Home({articles, trending}) {
 </div>
         
           <div className='flex  flex-col w-1/3 mr-9  '>
-          <h1 className='text-2xl text-slate-500 uppercase font-semibold my-11 ml-4'> See Whats Trending </h1>
+          <h1 className='text-2xl text-slate-400 uppercase font-semibold my-11 ml-4'> See Whats Trending </h1>
             {trending.results.map((trending, index) => (
               <div key={trending.uid}>
             
